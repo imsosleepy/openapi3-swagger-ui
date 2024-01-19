@@ -7,7 +7,9 @@ import com.example.swagger.model.GetRequestDto
 import com.example.swagger.model.PostRequestDto
 import com.example.swagger.model.TestResponseDto
 import io.swagger.v3.oas.annotations.Operation
+import io.swagger.v3.oas.annotations.media.ArraySchema
 import io.swagger.v3.oas.annotations.media.Content
+import io.swagger.v3.oas.annotations.media.Schema
 import io.swagger.v3.oas.annotations.responses.ApiResponse
 import io.swagger.v3.oas.annotations.responses.ApiResponses
 import io.swagger.v3.oas.annotations.security.SecurityRequirement
@@ -26,8 +28,11 @@ class SwaggerController {
 
     @Operation(summary = "Get Test API", description = "This is GET API")
     @ApiResponses(value = [
-        ApiResponse(responseCode = "202", description = "사용하지 않는 파라미터", content = [Content()])]
-    )
+        ApiResponse(responseCode = "200", description = "Success", content = [
+            Content(mediaType = "application/json", array = ArraySchema(schema = Schema(implementation = TestResponseDto::class)))
+        ]),
+        ApiResponse(responseCode = "202", description = "사용하지 않는 파라미터", content = [Content()])
+    ])
     @GetMapping("/get-test")
     fun getTest(@Valid @ParameterObject getRequestDto: GetRequestDto, bindingResult: BindingResult): TestResponseDto {
         if(bindingResult.hasErrors()) {
