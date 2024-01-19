@@ -3,12 +3,10 @@ package com.example.swagger.model
 import io.swagger.v3.oas.annotations.media.Schema
 import jakarta.validation.constraints.Max
 import jakarta.validation.constraints.Min
-import jakarta.validation.constraints.Pattern
 
 
 data class GetRequestDto(
-        @field:Schema(description = "문구 패턴 테스트")
-        @field:Pattern(regexp = "swagger|openAPI|docs|fox")
+        @field:Schema(description = "문구 패턴 테스트", pattern = "swagger|openAPI|docs|fox")
         val test: String,
         @field:Schema(description = "버전은 숫자로")
         val version: Int,

@@ -10,4 +10,10 @@ data class TestResponseDto(
 )
 
 @Schema(description = "표준 에러 응답 포맷")
-data class ErrorResponse(val code: String, val message: String, val timestamp: String)
+data class ErrorResponse(
+        @Schema(description = "에러 코드")
+        val code: String,
+        @Schema(description = "에러 메시지")
+        val message: String,
+        @Schema(description = "에러 발생 시간")
+        val timestamp: String)
