@@ -6,3 +6,5 @@ url : http://localhost:8080/swagger-ui/index.html
 3. 변수를 입력 받아 테스트 가능한가 확인
 4. 요청 객체의 파라미터 검증이 되나 확인
 5. API/요청객체/응답객체 description이 잘 출력되나 확인
+6. 공통 에러처리 추가(Schema가 안나오는데 원인 파악이 안됨)
+7. JWT 설정(검증은 없음)
